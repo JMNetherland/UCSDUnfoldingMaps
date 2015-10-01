@@ -5,14 +5,15 @@ import de.fhpotsdam.unfolding.UnfoldingMap;
 import de.fhpotsdam.unfolding.geo.Location;
 import de.fhpotsdam.unfolding.providers.AbstractMapProvider;
 import de.fhpotsdam.unfolding.providers.Google;
+import de.fhpotsdam.unfolding.providers.OpenMapSurferProvider;
 import de.fhpotsdam.unfolding.providers.MBTilesMapProvider;
 import de.fhpotsdam.unfolding.utils.MapUtils;
 
 /** HelloWorld
   * An application with two maps side-by-side zoomed in on different locations.
   * Author: UC San Diego Coursera Intermediate Programming team
-  * @author Your name here
-  * Date: July 17, 2015
+  * @author Jason M. Netherland
+  * Date: October 1, 2015
   * */
 public class HelloWorld extends PApplet
 {
@@ -43,12 +44,12 @@ public class HelloWorld extends PApplet
 
 		// This sets the background color for the Applet.  
 		// Play around with these numbers and see what happens!
-		this.background(250, 150, 100);
+		this.background(0, 255, 255);
 		
 		// Select a map provider
 		AbstractMapProvider provider = new Google.GoogleTerrainProvider();
 		// Select a map provider
-		AbstractMapProvider provider2 = new Google.GoogleMapProvider();
+		AbstractMapProvider provider2 = new OpenMapSurferProvider.Roads();
 		// Set a zoom level
 		int zoomLevel = 10;
 		
