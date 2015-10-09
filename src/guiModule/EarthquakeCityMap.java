@@ -1,4 +1,4 @@
-package module3;
+package guiModule;
 
 //Java utilities libraries
 import java.util.ArrayList;
@@ -24,8 +24,8 @@ import parsing.ParseFeed;
 /** EarthquakeCityMap
  * An application with an interactive map displaying earthquake data.
  * Author: UC San Diego Intermediate Software Development MOOC team
- * @author Jason M. Netherland
- * Date: October 9, 2015
+ * @author Your name here
+ * Date: July 17, 2015
  * */
 public class EarthquakeCityMap extends PApplet {
 
@@ -75,50 +75,19 @@ public class EarthquakeCityMap extends PApplet {
 	    
 	    // These print statements show you (1) all of the relevant properties 
 	    // in the features, and (2) how to get one property and use it
-		//	    if (earthquakes.size() > 0) {
-		//	    	PointFeature f = earthquakes.get(0);
-		//	    	System.out.println(f.getProperties());
-		//	    	System.out.println(f.getLocation());
-		//	    	Object magObj = f.getProperty("magnitude");
-		//	    	System.out.println(magObj);
-		//	    	float mag = Float.parseFloat(magObj.toString());
-		//	    	// PointFeatures also have a getLocation method
-		//	    }
+	    if (earthquakes.size() > 0) {
+	    	PointFeature f = earthquakes.get(0);
+	    	System.out.println(f.getProperties());
+	    	Object magObj = f.getProperty("magnitude");
+	    	float mag = Float.parseFloat(magObj.toString());
+	    	// PointFeatures also have a getLocation method
+	    }
 	    
 	    // Here is an example of how to use Processing's color method to generate 
 	    // an int that represents the color yellow.  
-	    //int yellow = color(255, 255, 0);
+	    int yellow = color(255, 255, 0);
 	    
 	    //TODO: Add code here as appropriate
-	    
-	    for (PointFeature f : earthquakes) {
-	    	
-	    	SimplePointMarker pointMark = createMarker(f);
-	    	
-	    	Object magObj = f.getProperty("magnitude");
-	    	float mag = Float.parseFloat(magObj.toString());
-	    	
-	    	if (mag <= 4.0) {
-	    		pointMark.setRadius(5);
-	    		pointMark.setColor(color(0, 0, 255));
-	    	}
-	    	
-	    	if (mag > 4.0 && mag < 5.0) {
-	    		pointMark.setRadius(10);
-	    		pointMark.setColor(color(255, 255, 0));
-	    	}
-	    	
-	    	if (mag >= 5.0) {
-	    		pointMark.setRadius(15);
-	    		pointMark.setColor(color(255, 0, 0));
-	    	}
-	    	
-	    	markers.add(pointMark);
-
-		}
-	    
-	    map.addMarkers(markers);
-	    //createMarker(earthquakes.getLocation());
 	}
 		
 	// A suggested helper method that takes in an earthquake feature and 
@@ -127,7 +96,7 @@ public class EarthquakeCityMap extends PApplet {
 	private SimplePointMarker createMarker(PointFeature feature)
 	{
 		// finish implementing and use this method, if it helps.
-			return new SimplePointMarker(feature.getLocation());
+		return new SimplePointMarker(feature.getLocation());
 	}
 	
 	public void draw() {
@@ -142,29 +111,7 @@ public class EarthquakeCityMap extends PApplet {
 	private void addKey() 
 	{	
 		// Remember you can use Processing's graphics methods here
-		fill(153);
-		rect(25, 50, 150, 200);
 		
-		fill(0, 102, 153);
-		textSize(15);
-		text("Earthquake Key", 40, 75);
-		
-		fill(color(255, 0, 0));
-		ellipse(50, 100, 20, 20);
-		fill(color(255, 0, 0));
-		textSize(10);
-		text("5.0 + Magnitude", 75, 100);
-		
-		fill(color(255, 255, 0));
-		ellipse(50, 150, 15, 15);
-		fill(color(255, 255, 0));
-		textSize(10);
-		text("4.0 + Magnitude", 75, 150);
-		
-		fill(color(0, 0, 255));
-		ellipse(50, 200, 10, 10);
-		fill(color(0, 0, 255));
-		textSize(10);
-		text("- 4.0 Magnitude", 75, 200);
+	
 	}
 }
